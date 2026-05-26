@@ -1,0 +1,45 @@
+PROGRAM:CRIT
+:ClrHome
+:Disp "2-VAR CRIT POINT"
+:Disp "SECOND DERIV TEST"
+:Input "F(X,Y)=",Str1
+:Prompt X,Y
+:X->P:Y->Q
+:.001->H
+:H^2->K
+:P+H->X:Q->Y:expr(Str1)->A
+:P-H->X:expr(Str1)->B
+:P->X:expr(Str1)->C
+:(A-2C+B)/K->FXX
+:P->X:Q+H->Y:expr(Str1)->A
+:Q-H->Y:expr(Str1)->B
+:Q->Y:expr(Str1)->C
+:(A-2C+B)/K->FYY
+:P+H->X:Q+H->Y:expr(Str1)->A
+:Q-H->Y:expr(Str1)->B
+:P-H->X:Q+H->Y:expr(Str1)->C
+:Q-H->Y:expr(Str1)->E
+:(A-B-C+E)/(4K)->FXY
+:FXX*FYY-FXY^2->D
+:ClrHome
+:Disp "Fxx =",FXX
+:Disp "Fyy =",FYY
+:Disp "Fxy =",FXY
+:Disp "D   =",D
+:Disp ""
+:If D>0 and FXX>0
+:Then
+:Disp "LOCAL MINIMUM"
+:End
+:If D>0 and FXX<0
+:Then
+:Disp "LOCAL MAXIMUM"
+:End
+:If D<0
+:Then
+:Disp "SADDLE POINT"
+:End
+:If abs(D)<1E-9
+:Then
+:Disp "TEST FAILS"
+:End

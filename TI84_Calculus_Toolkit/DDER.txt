@@ -1,0 +1,31 @@
+PROGRAM:DDER
+:ClrHome
+:Disp "DIR DERIVATIVE"
+:Input "F(X,Y)=",Str1
+:Disp "POINT (X,Y):"
+:Prompt X,Y
+:Disp "DIRECTION:"
+:Input "U1=",U
+:Input "U2=",V
+:sqrt(U^2+V^2)->N
+:If N=0
+:Then
+:Disp "ZERO VECTOR"
+:Stop
+:End
+:U/N->U:V/N->V
+:X->P:Y->Q
+:.001->H
+:P+H->X:Q->Y:expr(Str1)->A
+:P-H->X:expr(Str1)->B
+:(A-B)/(2H)->FX
+:P->X:Q+H->Y:expr(Str1)->A
+:Q-H->Y:expr(Str1)->B
+:(A-B)/(2H)->FY
+:FX*U+FY*V->D
+:ClrHome
+:Disp "UNIT VECTOR:"
+:Disp U,V
+:Disp "Fx =",FX
+:Disp "Fy =",FY
+:Disp "D_u F =",D

@@ -1,0 +1,15 @@
+PROGRAM:INT1
+:ClrHome
+:Disp "DEFINITE INTEGRAL"
+:Disp "F(X) IN Y1"
+:Input "LOWER A=",A
+:Input "UPPER B=",B
+:fnInt(Y1,X,A,B)->I
+:ClrHome
+:Disp "INTEGRAL FROM"
+:Disp A,"TO",B
+:Disp "EQUALS:"
+:Disp I
+:Disp ""
+:Disp "AVG VALUE:"
+:Disp I/(B-A)

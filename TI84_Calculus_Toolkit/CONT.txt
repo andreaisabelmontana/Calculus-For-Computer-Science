@@ -1,0 +1,28 @@
+PROGRAM:CONT
+:ClrHome
+:Disp "CONTINUITY CHECK"
+:Disp "AT X = A"
+:Disp "F(X) IN Y1"
+:Prompt A
+:Y1(A-1E-5)->L
+:Y1(A+1E-5)->R
+:Y1(A)->V
+:ClrHome
+:Disp "LEFT   =",L
+:Disp "RIGHT  =",R
+:Disp "F(A)   =",V
+:Disp ""
+:If abs(L-R)>=1E-4
+:Then
+:Disp "JUMP DISCONT."
+:Goto Z
+:End
+:If abs(L-V)>=1E-4
+:Then
+:Disp "REMOVABLE DISC."
+:Disp "FILLED VALUE:"
+:Disp (L+R)/2
+:Goto Z
+:End
+:Disp "CONTINUOUS AT A"
+:Lbl Z

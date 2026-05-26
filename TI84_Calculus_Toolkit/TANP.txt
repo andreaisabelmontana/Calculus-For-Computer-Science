@@ -1,0 +1,26 @@
+PROGRAM:TANP
+:ClrHome
+:Disp "TANGENT PLANE TO"
+:Disp "Z = F(X,Y)"
+:Input "F(X,Y)=",Str1
+:Prompt X,Y
+:X->P:Y->Q
+:expr(Str1)->Z
+:.001->H
+:P+H->X:Q->Y:expr(Str1)->A
+:P-H->X:expr(Str1)->B
+:(A-B)/(2H)->U
+:P->X:Q+H->Y:expr(Str1)->A
+:Q-H->Y:expr(Str1)->B
+:(A-B)/(2H)->V
+:ClrHome
+:Disp "PLANE EQUATION:"
+:Disp "Z =",Z
+:Disp "+ (Fx)(X-P)"
+:Disp "+ (Fy)(Y-Q)"
+:Disp ""
+:Disp "Fx =",U
+:Disp "Fy =",V
+:Disp "Z0 =",Z
+:Disp "P =",P
+:Disp "Q =",Q

@@ -1,0 +1,23 @@
+PROGRAM:DER2
+:ClrHome
+:Disp "2ND DERIV / CONC"
+:Disp "F(X) IN Y1"
+:Prompt A
+:.001->H
+:(Y1(A+H)-2Y1(A)+Y1(A-H))/H^2->D
+:ClrHome
+:Disp "F''(A) =",D
+:Disp ""
+:If D>1E-6
+:Then
+:Disp "CONCAVE UP"
+:End
+:If D<-1E-6
+:Then
+:Disp "CONCAVE DOWN"
+:End
+:If abs(D)<=1E-6
+:Then
+:Disp "POSSIBLE"
+:Disp "INFLECTION PT"
+:End

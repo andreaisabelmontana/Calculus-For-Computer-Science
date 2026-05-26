@@ -1,0 +1,23 @@
+PROGRAM:MACL
+:ClrHome
+:Disp "MACLAURIN POLY"
+:Disp "DEGREE 4"
+:Disp "F(X) IN Y1"
+:Pause
+:.01->H
+:Y1(0)->A
+:(Y1(H)-Y1(-H))/(2H)->B
+:(Y1(H)-2Y1(0)+Y1(-H))/H^2->C
+:(Y1(2H)-2Y1(H)+2Y1(-H)-Y1(-2H))/(2H^3)->D
+:(Y1(2H)-4Y1(H)+6Y1(0)-4Y1(-H)+Y1(-2H))/H^4->E
+:ClrHome
+:Disp "P4(X) COEFFS:"
+:Disp "c0 =",A
+:Disp "c1 =",B
+:Disp "c2 =",C/2
+:Disp "c3 =",D/6
+:Disp "c4 =",E/24
+:Pause
+:ClrHome
+:Disp "STORED IN L1"
+:{A,B,C/2,D/6,E/24}->L1

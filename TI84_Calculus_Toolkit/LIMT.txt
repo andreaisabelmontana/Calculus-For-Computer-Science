@@ -1,0 +1,33 @@
+PROGRAM:LIMT
+:ClrHome
+:Disp "NUMERIC LIMIT EST"
+:Disp "ENTER F(X) IN Y1"
+:Disp "THEN PRESS ENTER"
+:Pause
+:Prompt A
+:ClrHome
+:Disp "X -> A FROM LEFT:"
+:Disp Y1(A-.1)
+:Disp Y1(A-.01)
+:Disp Y1(A-.001)
+:Disp Y1(A-.0001)
+:Pause
+:ClrHome
+:Disp "X -> A FROM RIGHT:"
+:Disp Y1(A+.0001)
+:Disp Y1(A+.001)
+:Disp Y1(A+.01)
+:Disp Y1(A+.1)
+:Pause
+:ClrHome
+:Y1(A-1E-5)->L
+:Y1(A+1E-5)->R
+:Disp "LEFT  =",L
+:Disp "RIGHT =",R
+:If abs(L-R)<1E-4
+:Then
+:Disp "LIMIT EXISTS:"
+:Disp (L+R)/2
+:Else
+:Disp "LIMIT DNE"
+:End

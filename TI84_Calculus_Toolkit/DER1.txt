@@ -1,0 +1,16 @@
+PROGRAM:DER1
+:ClrHome
+:Disp "DERIVATIVE AT PT"
+:Disp "F(X) IN Y1"
+:Prompt A
+:nDeriv(Y1,X,A)->D
+:Y1(A)->F
+:F-D*A->B
+:ClrHome
+:Disp "F(A)  =",F
+:Disp "F'(A) =",D
+:Disp ""
+:Disp "TANGENT LINE:"
+:Disp "Y = MX + B"
+:Disp "M =",D
+:Disp "B =",B

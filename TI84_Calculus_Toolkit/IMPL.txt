@@ -1,0 +1,23 @@
+PROGRAM:IMPL
+:ClrHome
+:Disp "IMPLICIT DIFF"
+:Disp "F(X,Y)=0 FORM"
+:Input "F(X,Y)=",Str1
+:Prompt X,Y
+:X->P:Y->Q
+:.001->H
+:P+H->X:Q->Y:expr(Str1)->A
+:P-H->X:expr(Str1)->B
+:(A-B)/(2H)->U
+:P->X:Q+H->Y:expr(Str1)->A
+:Q-H->Y:expr(Str1)->B
+:(A-B)/(2H)->V
+:ClrHome
+:Disp "Fx =",U
+:Disp "Fy =",V
+:If abs(V)<1E-9
+:Then
+:Disp "dy/dx UNDEFINED"
+:Else
+:Disp "dy/dx =",-U/V
+:End

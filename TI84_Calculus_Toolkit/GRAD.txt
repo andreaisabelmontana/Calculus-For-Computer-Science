@@ -1,0 +1,22 @@
+PROGRAM:GRAD
+:ClrHome
+:Disp "GRADIENT OF F"
+:Disp "USE X AND Y"
+:Input "F(X,Y)=",Str1
+:Prompt X,Y
+:X->P:Y->Q
+:.001->H
+:P+H->X:Q->Y:expr(Str1)->A
+:P-H->X:expr(Str1)->B
+:(A-B)/(2H)->U
+:P->X:Q+H->Y:expr(Str1)->A
+:Q-H->Y:expr(Str1)->B
+:(A-B)/(2H)->V
+:P->X:Q->Y:expr(Str1)->F
+:{U,V}->L2
+:ClrHome
+:Disp "F(P,Q) =",F
+:Disp "Fx =",U
+:Disp "Fy =",V
+:Disp "|GRAD F| =",sqrt(U^2+V^2)
+:Disp "STORED IN L2"
